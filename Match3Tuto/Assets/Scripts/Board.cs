@@ -6,36 +6,37 @@ public class Board : MonoBehaviour
 {
     //-----------------------------------------------------
     [Header("Board")]
-    [SerializeField] private int width = 7, height = 10;
-    [SerializeField] private Vector2 Offset = new Vector2 (0,0);
+    public int width = 7, height = 10;
+    // [SerializeField] private Vector2 Offset = new Vector2 (0,0);
     [Header("Tiles")]
     [SerializeField] private GameObject tilePrefab = null;
     [SerializeField] private float tileScale = 1f;
                      private BackgroundTile [,] allTiles;
     //-----------------------------------------------------
     [Header("Personagens")]
-    [SerializeField] private GameObject[] charsPrefabs = null;
-    [SerializeField] private GameObject[,] allChars = null;
+    [SerializeField] private GameObject[] dotPrefabs = null;
+                     public GameObject[,] allDots = null;
     [SerializeField] private float charactersScale = 0.4f;
     //------------------------------------------------------
 
     private void Awake()
     {
         allTiles = new BackgroundTile [ width, height ];
-        allChars = new GameObject [ width, height ];
+        allDots = new GameObject [ width, height ];
         CreateTiles();
     }
     
     private void CreateTiles(){
         for(int i = 0; i < width; i ++){ //linha
             for(int j = 0; j < height; j ++){ //coluna
-                Vector2 pos = new Vector2(i,j) - Offset;
+                // Vector2 pos = new Vector2(i,j) - Offset;
+                Vector2 pos = new Vector2(i,j);
                 string name = "( " + i + ", " + j + " )";
 
                 InstantiateInScene(tilePrefab, pos, tileScale, (name + " - tile"));
                 //--------------
-                GameObject character = charsPrefabs[ (Random.Range (0, charsPrefabs.Length )) ];
-                allChars[i,j] = InstantiateInScene(character, pos, charactersScale, (name + " - personagem"));
+                GameObject character = dotPrefabs[ (Random.Range (0, dotPrefabs.Length)) ];
+                allDots[i,j] = InstantiateInScene(character, pos, charactersScale, (name + " - personagem"));
             }
         }
     }
