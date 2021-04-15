@@ -1,20 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class BackgroundTile : MonoBehaviour
-{
-   
-
-    private void Awake() {
-        InstantiateCharacterPrefab();
-    }
-
-    public void InstantiateCharacterPrefab (){
-        // int randomIndex = Random.Range (0, charsPrefabs.Length-1 );
-        // GameObject _char = Instantiate (charsPrefabs[randomIndex], transform.position, Quaternion.identity);
-        // _char.transform.parent = this.transform;
-        // _char.transform.localScale = new Vector2 (charactersScale, charactersScale);
-        // _char.name = this.gameObject.name + " - character prefab";
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4a7af494774d6b813b823d8fa8c1352c725470c6b4b06445208a3dcc4a2cb80d
+size 704
